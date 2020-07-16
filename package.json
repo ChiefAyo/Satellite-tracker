@@ -1,0 +1,22 @@
+{
+  "name": "satellite-tracker",
+  "version": "1.0.0",
+  "description": "Tracks satellites directly above your location",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "satellite",
+    "track",
+    "location"
+  ],
+  "author": "Ayo Olagbaiye",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.0"
+  }
+}

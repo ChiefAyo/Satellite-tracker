@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stlyles.css">
+    <title>Satellite tracker</title>
+</head>
+
+
+<body>
+
+    <h1>Satellite app</h1>
+
+    <p>latitude: <span id="latitude"></span>&deg;</p>
+    <p>longitude: <span id="longitude"></span>&deg;</p>
+    <input type="button" value="locate" id="locateButton" />
+
+    <p>
+    <h3 id='tableTitle'>Satellites above you right now: </h3>
+    <table id='infoTable' >
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Satellite name</th>
+                <th>Launch date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+    <br/>
+    <input type = 'button' value = 'Stop checking' id = 'stopButton'>
+    </p>
+
+    <script defer src="/script.js"></script>
+</body>
+
+
+</html>
