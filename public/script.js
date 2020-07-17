@@ -44,6 +44,7 @@ document.getElementById("locateButton").onclick = function search() {
                     generateTable(satjSon);
 
                 }
+
                 checkSat()
                 let intervalChecks = window.setInterval(checkSat,10000);
 
@@ -64,11 +65,7 @@ document.getElementById("locateButton").onclick = function search() {
 
 
 
-                {
-
-
-
-                }
+                
 
 
 
