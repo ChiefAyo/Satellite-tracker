@@ -30,13 +30,18 @@ document.getElementById("locateButton").onclick = function search() {
                 const json = await response.json();
                 console.log(json);
 
+                const controller = new AbortController;
+                const signal = controller.signal;
+
                 //updates the data every 10 seconds
                 async function checkSat(){
 
                     const api_url = `satellite/${lat},${lon},${alt}`;
 
 
-                    const satResponse = await fetch(api_url);
+                    const satResponse = await fetch(api_url,{
+                        signal:signal
+                    });
                     const satjSon = await satResponse.json();
                     console.log(satjSon);
 
@@ -48,10 +53,7 @@ document.getElementById("locateButton").onclick = function search() {
                 checkSat()
                 let intervalChecks = window.setInterval(checkSat,10000);
 
-                // let intervalChecks = window.setInterval(async function () {
-
-                    
-                // }, 10000);
+                
 
                 //stops the updating by removing interval function
                 const stopButton = document.getElementById('stopButton');
@@ -61,6 +63,9 @@ document.getElementById("locateButton").onclick = function search() {
                     restartText.textContent = "Click 'locate' to start searching again"
                     restartText.id = 'restartText';
                     document.getElementById('locateButton').after(restartText);
+                    controller.abort();
+                    //need some way of stopping error message from appaearing in console
+                    console.log("Search aborted");
                 }
 
 

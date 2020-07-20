@@ -14,30 +14,34 @@
 
 <body>
 
-    <h1>Satellite app</h1>
+    <div id = "container">
 
-    <p>latitude: <span id="latitude"></span>&deg;</p>
-    <p>longitude: <span id="longitude"></span>&deg;</p>
-    <input type="button" value="locate" id="locateButton" />
+        <h1 id="title">Satellite app</h1>
 
-    <p>
-    <h3 id='tableTitle'>Satellites above you right now: </h3>
-    <table id='infoTable' >
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Satellite name</th>
-                <th>Launch date</th>
-            </tr>
-        </thead>
-        <tbody>
+        <p class = "latlon">latitude: <span class = "latlon" id="latitude"></span>&deg;</p>
+        <p class = "latlon">longitude: <span class = "latlon" id="longitude"></span>&deg;</p>
+        <input type="button" value="locate" id="locateButton" />
+        
 
-        </tbody>
+        <div id="satelliteArea">
+            <h3 id='tableTitle'>Satellites above you right now: </h3>
+            <table id='infoTable'>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Satellite name</th>
+                        <th>Launch date</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-    </table>
-    <br/>
-    <input type = 'button' value = 'Stop checking' id = 'stopButton'>
-    </p>
+                </tbody>
+
+            </table>
+            <br />
+            <input type='button' value='Stop checking' id='stopButton'>
+        </div>
+    </div>
 
     <script defer src="/script.js"></script>
 </body>
