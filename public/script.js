@@ -1,5 +1,5 @@
 //document.getElementById('infoTable').style.visibility = 'hidden';
-
+//var ProgressBar = require('progressbar.js');
 //adds on click to main button to begin locating satellites
 document.getElementById("locateButton").onclick = function search() {
     if (document.contains(document.getElementById('restartText'))) {
@@ -8,6 +8,7 @@ document.getElementById("locateButton").onclick = function search() {
     if ('geolocation' in navigator) {
         console.log('geolocation available');
         try {
+            let searching = true;
             navigator.geolocation.getCurrentPosition(async position => {
                 console.log(position);
                 const lat = position.coords.latitude;
@@ -17,6 +18,7 @@ document.getElementById("locateButton").onclick = function search() {
                 document.getElementById('latitude').textContent = lat;
                 document.getElementById('longitude').textContent = lon;
 
+                //var loadBar = new ProgressBar.Line("#barContainer");
 
                 //need to add altitude parameter, otherwise it won't work, might default to zero
                 //const api_url = `https://www.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/27/5/0&apiKey=${API_KEY}`;
@@ -62,20 +64,26 @@ document.getElementById("locateButton").onclick = function search() {
 
                 //stops the updating by removing interval function
                 const stopButton = document.getElementById('stopButton');
+
                 stopButton.onclick = function () {
-                    clearInterval(intervalChecks);
-                    var restartText = document.createElement("p")
-                    restartText.textContent = "Click 'locate' to start searching again"
-                    restartText.id = 'restartText';
-                    document.getElementById('locateButton').after(restartText);
-                    controller.abort();
-                    console.log("Request aborted");
+                    if (searching) {
+                        searching = false;
+                        clearInterval(intervalChecks);
+                        //document.getElementById('restartText').remove();
+                        var restartText = document.createElement("p")
+                        restartText.textContent = "Click 'locate' to start searching again"
+
+                        restartText.id = 'restartText';
+                        document.getElementById('locateButton').after(restartText);
+                        controller.abort();
+                        console.log("Request aborted");
+                    }
                 }
 
 
 
             });
-        } catch(error){
+        } catch (error) {
             console.error(error);
         }
     } else {
