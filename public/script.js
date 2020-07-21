@@ -34,26 +34,31 @@ document.getElementById("locateButton").onclick = function search() {
                 const signal = controller.signal;
 
                 //updates the data every 10 seconds
-                async function checkSat(){
+                async function checkSat() {
 
                     const api_url = `satellite/${lat},${lon},${alt}`;
 
+                    try {
+                        const satResponse = await fetch(api_url, {
+                            signal: signal
+                        });
+                        const satjSon = await satResponse.json();
+                        console.log(satjSon);
 
-                    const satResponse = await fetch(api_url,{
-                        signal:signal
-                    });
-                    const satjSon = await satResponse.json();
-                    console.log(satjSon);
 
-
-                    generateTable(satjSon);
+                        generateTable(satjSon);
+                    } catch (error) {
+                        if (error.name === 'AbortError') {
+                            console.log('Fetch aborted');
+                        }
+                    }
 
                 }
 
                 checkSat()
-                let intervalChecks = window.setInterval(checkSat,10000);
+                let intervalChecks = window.setInterval(checkSat, 10000);
 
-                
+
 
                 //stops the updating by removing interval function
                 const stopButton = document.getElementById('stopButton');
@@ -64,20 +69,14 @@ document.getElementById("locateButton").onclick = function search() {
                     restartText.id = 'restartText';
                     document.getElementById('locateButton').after(restartText);
                     controller.abort();
-                    //need some way of stopping error message from appaearing in console
-                    console.log("Search aborted");
+                    console.log("Request aborted");
                 }
 
 
 
-                
-
-
-
-
             });
-        }catch{
-            
+        } catch(error){
+            console.error(error);
         }
     } else {
         console.log('geolocation unavailable');
