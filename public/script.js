@@ -1,5 +1,6 @@
 //document.getElementById('infoTable').style.visibility = 'hidden';
 //var ProgressBar = require('progressbar.js');
+
 //adds on click to main button to begin locating satellites
 document.getElementById("locateButton").onclick = function search() {
     if (document.contains(document.getElementById('restartText'))) {

@@ -10,11 +10,22 @@
     border: 1px solid black;
     border-collapse: collapse;
     visibility: hidden;
+    
 }
+
+/* #infoTable {
+    border-radius: 6px;
+} */
 
 #infoTable th, #infoTable td {
     border: 1px solid black;
     font-family: sans-serif;
+}
+
+#infoTable th {
+    color: white;
+    background-color: black;
+
 }
 
 #title,#tableTitle {
