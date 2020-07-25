@@ -10,12 +10,10 @@
     border: 1px solid black;
     border-collapse: collapse;
     visibility: hidden;
-    
+    border-radius: 30px;
 }
 
-/* #infoTable {
-    border-radius: 6px;
-} */
+
 
 #infoTable th, #infoTable td {
     border: 1px solid black;
@@ -39,7 +37,12 @@
     margin-top: 2%;
 }
 
+p {
+    font-family: sans-serif;
+}
+
 .latlon {
     font-family: sans-serif;
 }
+
 

@@ -1,38 +1,52 @@
 //document.getElementById('infoTable').style.visibility = 'hidden';
 //var ProgressBar = require('progressbar.js');
 
+/**
+ * cliet facing script, all code here directly implemented into client side,
+ * user will be able to see all of this code
+ */
+
 //adds on click to main button to begin locating satellites
 document.getElementById("locateButton").onclick = function search() {
+    //checks if the restart search button is there, if so, remove it
     if (document.contains(document.getElementById('restartText'))) {
         document.getElementById('restartText').remove();
     }
+
+    //checks if the gelocator is available on the current system
     if ('geolocation' in navigator) {
         console.log('geolocation available');
         try {
             let searching = true;
             navigator.geolocation.getCurrentPosition(async position => {
                 console.log(position);
+                //gets the current latitude, longitude and altitude of the device
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
                 const alt = position.coords.altitude;
 
+                //displays the lat and lon to the user
                 document.getElementById('latitude').textContent = lat;
                 document.getElementById('longitude').textContent = lon;
 
                 //var loadBar = new ProgressBar.Line("#barContainer");
 
-                //need to add altitude parameter, otherwise it won't work, might default to zero
                 //const api_url = `https://www.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/27/5/0&apiKey=${API_KEY}`;
                 const data = { lat, lon, alt };
+
+                //fetch request parameters
                 const options = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 }
                 const response = await fetch('/api', options);
+
+                //convert resonse to javascript object
                 const json = await response.json();
                 console.log(json);
 
+                //creates abort controller to allow the user to cancel the api request
                 const controller = new AbortController;
                 const signal = controller.signal;
 
