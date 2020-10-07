@@ -106,6 +106,10 @@ document.getElementById("locateButton").onclick = function search() {
     }
 }
 
+/**
+ * Adds the data to the table and makes it visible
+ * @param {json} satJson JSON data for satellites located
+ */
 function generateTable(satJson) {
     let table = document.getElementById('infoTable')
     let tableBody = table.getElementsByTagName('tbody')[0];
