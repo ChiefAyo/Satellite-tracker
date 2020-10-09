@@ -31,7 +31,7 @@ document.getElementById("locateButton").onclick = function search() {
 
                 //var loadBar = new ProgressBar.Line("#barContainer");
 
-                //const api_url = `https://www.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/27/5/0&apiKey=${API_KEY}`;
+                //const api_url = `https://api.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/27/5/0&apiKey=${API_KEY}`;
                 const data = { lat, lon, alt };
 
                 //fetch request parameters

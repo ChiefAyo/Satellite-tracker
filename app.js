@@ -47,9 +47,9 @@ app.get('/satellite/:latlonalt', async (request, response) => {
     //need to add altitude parameter, otherwise it won't work, might default to zero
     let api_url = ``;
     if (latlonalt[2] === null) {
-        api_url = `https://www.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/0/5/0&apiKey=${API_KEY}`;
+        api_url = `https://api.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/0/5/0&apiKey=${API_KEY}`;
     } else {
-        api_url = `https://www.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/${alt}/5/0&apiKey=${API_KEY}`;
+        api_url = `https://api.n2yo.com/rest/v1/satellite/above/${lat}/${lon}/${alt}/5/0&apiKey=${API_KEY}`;
     }
     
 
