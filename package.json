@@ -14,10 +14,21 @@
   "author": "Ayo Olagbaiye",
   "license": "MIT",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "node-fetch": "^2.6.0",
     "progressbar.js": "^1.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBlackChief/Satellite-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheBlackChief/Satellite-tracker/issues"
+  },
+  "homepage": "https://github.com/TheBlackChief/Satellite-tracker#readme"
 }

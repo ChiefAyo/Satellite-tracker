@@ -20,8 +20,8 @@
 
         <p class = "latlon">latitude: <span class = "latlon" id="latitude"></span>&deg;</p>
         <p class = "latlon">longitude: <span class = "latlon" id="longitude"></span>&deg;</p>
-        <input type="button" value="locate" id="locateButton" />
-        
+        <input class="mainButtons" type="button" value="Locate" id="locateButton" />
+        <div class = "relocate"></div>
 
         <div id="satelliteArea">
             <h3 id='tableTitle'>Satellites above you right now: </h3>
@@ -39,12 +39,21 @@
 
             </table>
             <br />
-            <input type='button' value='Stop checking' id='stopButton'>
+            <input class="mainButtons" type='button' value='Stop checking' id='stopButton'>
         </div>
         <p id = 'credit'>Data provided by: N2YO.COM REST API</p>
     </div>
 
     <script defer src="/script.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src = "src/Relocate.js"></script>
+
+    //TODO stop error due to babel, find a way to make reprocessor work
+    <script>
+        ReactDOM.render(<Relocate />, document.querySelector(".relocate"))
+    </script>
 </body>
 
 

@@ -1,29 +1,42 @@
 
 #container {
-    border: 1px solid black;
+    border: thin solid black;
     padding: 2%;
     padding-top: 1%;
     width: 50%;
 }
 
 #infoTable {
-    border: 1px solid black;
+    border: thin solid black;
     border-collapse: collapse;
     visibility: hidden;
-    border-radius: 30px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 0 30px rgba(0,0,0,0.35);
+    animation: grow-shrink 
+
 }
 
+#infoTable tbody tr{
+    border-bottom: thin solid #dddddd;
+}
 
+#infoTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#infoTable tbody :hover {
+    font-weight: bold;
+}
 
 #infoTable th, #infoTable td {
-    border: 1px solid black;
+    border: thin solid black;
     font-family: sans-serif;
+    padding: 12px 15px;
 }
 
 #infoTable th {
     color: white;
     background-color: black;
-
 }
 
 #title,#tableTitle {
@@ -31,10 +44,20 @@
 }
 
 #satelliteArea {
-    border: 1px solid darkcyan;
+    border: thin solid darkcyan;
     width: 75%;
     padding: 2%;
     margin-top: 2%;
+}
+
+.mainButtons {
+    background-color: rgb(39, 199, 39);
+    color: white;
+    border: thin solid;
+    padding: 1.5%;
+    border-radius: 8px;
+    cursor: pointer;
+    
 }
 
 p {
